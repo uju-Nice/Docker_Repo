@@ -1,4 +1,4 @@
-name: Publish docker image to aws ECR
+name: Publish docker image to Dockerhub
 
 on: 
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish_to_aws_registry:
-    name: push docker image to ecr
+    name: push docker image to dockerhub
     runs-on: ubuntu-latest
     defaults:
       run:
