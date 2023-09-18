@@ -1,10 +1,19 @@
-name: Publish docker image to Docker Hub 
+name: Publish docker image to aws ECR
 
-on: [ push ]
-  
+on: 
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main", "dev"]
+
 jobs:
-   push_docker_image_to_docker_registry:
+  publish_to_aws_registry:
+    name: push docker image to ecr
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .\Docker_Repo
+
     steps:
       - run: echo " This image should be pushed to dockerhub"
 
@@ -12,18 +21,24 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Dockerhub login  
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with: 
-          username: ${{secrets.DOCKER_USERNAME}}
-          password: ${{secrets.DOCKER_PASSWORD}}
+          username: ${{ secrets.DOCKER_USERNAME}}
+          password: $ {{ secrets.DOCKER_PASSWORD}}
 
       - name: docker build and push docker image 
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: push image
           push: true 
-          tags: obianuju/nickos:latest
+          tags: obianuju/image_01:latest
           
+          # run: |
+          #    docker build -t image_01:latest
+          #    docker tag image_01 obianuju/nickos image_01:latest
+          #    docker push obianuju/nickos image_01:latest
+
+ 
 
  
 
