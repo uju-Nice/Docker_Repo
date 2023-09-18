@@ -2,9 +2,9 @@ name: Publish docker image to Dockerhub
 
 on: 
   push:
-    branches: ["main"]
+    branches: ["main", "feature/dockerhub"]
   pull_request:
-    branches: ["main", "dev"]
+    branches: ["feature/dockerhub"]
 
 jobs:
   publish_to_docker_registry:
