@@ -30,13 +30,20 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME}}
           password: ${{ secrets.DOCKERHUB_SECRET}}
 
-      - name: docker build and push docker image 
-        uses: docker/build-push-action@v5
-        with:
-          context: .       
-          push: true 
-          tags: ${{ steps.meta.outputs.tags}}
-          labels: ${{ steps.meta.outputs.labels}}
+      - name: build and push docker image 
+        run: | 
+            docker build -t nice_image:v1.0 .
+            docker tag nice_image  obianuju/nickos:v1.0 
+            docker push obianuju/nickos:v1.0 
+
+
+      # - name: docker build and push docker image 
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     context: .       
+      #     push: true 
+      #     tags: ${{ steps.meta.outputs.tags}}
+      #     labels: ${{ steps.meta.outputs.labels}}
 
 
           # tags: obianuju/node_image_01:latest
