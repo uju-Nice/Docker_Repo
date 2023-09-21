@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: obianuju/node_image_01:latest
+          images: node_image_01:latest
 
       - name: Dockerhub login  
         uses: docker/login-action@v3
