@@ -2,9 +2,9 @@ name: Publish docker image to Dockerhub
 
 on:
   push:
-    branches: ["nice-branch'"]
-  pull_request:
-    branches: ["nice-branch"]
+  #   branches: ["nice-branch'"]
+  # pull_request:
+  #   branches: ["nice-branch"]
 
 jobs:
   publish_to_docker_registry:
