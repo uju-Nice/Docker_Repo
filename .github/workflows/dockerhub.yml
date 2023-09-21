@@ -39,9 +39,12 @@ jobs:
         with:
           context: workflow         # context defines where to get context metadata:
           push: true 
-          # tags: obianuju/node_image_01:latest
           tags: ${{ steps.meta.outputs.tags}}
-          labels: ${{ steps.meta.outputs.labels}}
+
+
+          
+          # tags: obianuju/node_image_01:latest
+          # labels: ${{ steps.meta.outputs.labels}}
           # run: |
           #    docker build -t image_01:latest
           #    docker tag image_01 obianuju/nickos image_01:latest
