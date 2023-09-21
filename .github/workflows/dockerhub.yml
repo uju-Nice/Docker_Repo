@@ -33,7 +33,7 @@ jobs:
       - name: docker build and push docker image 
         uses: docker/build-push-action@v5
         with:
-          context: workflow         # context defines where to get context metadata:
+          context: .       
           push: true 
           tags: ${{ steps.meta.outputs.tags}}
           labels: ${{ steps.meta.outputs.labels}}
