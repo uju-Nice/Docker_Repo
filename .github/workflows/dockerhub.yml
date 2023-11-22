@@ -33,7 +33,7 @@ jobs:
       - name: build and push docker image 
         run: | 
             docker build -t nice_image:v3.0 .
-            docker images
+            echo 'docker images'
             docker tag nice_image:v3.0  obianuju/nickos:v3.0
             docker push obianuju/nickos:v3.0
 
