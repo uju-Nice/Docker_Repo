@@ -32,9 +32,10 @@ jobs:
 
       - name: build and push docker image 
         run: | 
-            docker build -t nice_image:v2.0 .
-            docker tag nice_image:v2.0  obianuju/nickos:v2.0
-            docker push obianuju/nickos:v2.0
+            docker build -t nice_image:v3.0 .
+            docker images
+            docker tag nice_image:v3.0  obianuju/nickos:v3.0
+            docker push obianuju/nickos:v3.0
 
       # - name: docker build and push docker image 
       #   uses: docker/build-push-action@v5
@@ -52,4 +53,4 @@ jobs:
           #    docker tag image_01 obianuju/nickos image_01:latest
           #    docker push obianuju/nickos image_01:latest
 
- 
+
