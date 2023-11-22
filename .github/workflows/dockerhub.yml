@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./Docker_Repo/.github/workflows/dockerhub.yml
+        working-directory: ./.github/workflows/dockerhub.yml
 
     steps:
       - name: Check out the repo code 
