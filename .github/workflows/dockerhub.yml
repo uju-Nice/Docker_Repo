@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: .
+        working-directory: ./Docker_Repo/.github/workflows/dockerhub.yml
 
     steps:
       - name: Check out the repo code 
@@ -32,10 +32,9 @@ jobs:
 
       - name: build and push docker image 
         run: | 
-            docker build -t nice_image:v1.0 .
-            # docker tag nice_image:v1.0  obianuju/nickos:v1.0
-            docker tag nice_image:v1.0  obianuju/nickos/node_app:v1.0
-            docker push obianuju/nickos/node_app:v1.0 
+            docker build -t nice_image:v1.0.1 .
+            docker tag nice_image:v1.0  obianuju/nickos:v1.0
+            docker push obianuju/nickos:v1.0.1 
 
 
       # - name: docker build and push docker image 
